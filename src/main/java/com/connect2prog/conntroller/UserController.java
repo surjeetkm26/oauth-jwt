@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.connect2prog.dto.JWTRequest;
+import com.connect2prog.dto.JWTResponse;
 import com.connect2prog.jwt.util.JWTUtility;
-import com.connect2prog.model.JWTRequest;
-import com.connect2prog.model.JWTResponse;
 import com.connect2prog.service.UserService;
 
-@RestController
+//@RestController
 public class UserController {
 
 	@Autowired
@@ -44,6 +44,7 @@ public class UserController {
 		//Once Authentication is done we need create JWT Token
 		final UserDetails userDetails=userService.loadUserByUsername(jwtRequest.getUsername());
 		final String token=jWTUtility.generateToken(userDetails);
-		return new JWTResponse(token);
+		//return new JWTResponse(token);
+		return null;
 	}
 }

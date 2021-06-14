@@ -19,7 +19,8 @@ import com.connect2prog.service.UserService;
 
 @Component
 public class JWTFilter extends OncePerRequestFilter {
-
+	private static final String AUTHORIZATION_HEADER = "Authorization";
+    private static final String BEARER_TOKEN_TYPE = "Bearer";
     @Autowired
     private JWTUtility jwtUtility;
 
@@ -28,7 +29,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        String authorization = httpServletRequest.getHeader("Authorization");
+        String authorization = httpServletRequest.getHeader(AUTHORIZATION_HEADER);
         String token = null;
         String userName = null;
 

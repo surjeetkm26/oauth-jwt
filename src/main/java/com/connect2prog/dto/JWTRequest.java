@@ -1,4 +1,6 @@
-package com.connect2prog.model;
+package com.connect2prog.dto;
+
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,4 +13,6 @@ public class JWTRequest {
 
 	private String username;
 	private String password;
+	private String email;
+	private Set<String> strRoles;
 }
